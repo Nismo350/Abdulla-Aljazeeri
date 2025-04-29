@@ -99,7 +99,7 @@ function resetGame() {
 
     // Reset UI for all cards
     cardSet.forEach((el, index) => {
-        el.setAttribute('src', './images/blue2.svg'); // Assuming this is the default back of the card
+        el.setAttribute('src', './images/blue2.svg'); // the default back of the card
     });
 
     // Reset gameplay variables
