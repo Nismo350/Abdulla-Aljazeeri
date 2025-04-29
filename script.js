@@ -30,8 +30,7 @@ let cards = [
     {value: '6', image: './images/diamonds_6.svg', matched: false},
     {value: '7', image: './images/diamonds_7.svg', matched: false},
 ]
-    //the variable i made to access the img tags from the html witch they gona represents
-    //the back of the card.
+    
     const cardSet = document.querySelectorAll('.card')
     
     let  firstGo = null
@@ -40,10 +39,7 @@ let cards = [
     
 
 
-//here i added a wincheck function basicly i made an if statment and chose cards array and 
-// every card inside that array matches, and i used the arrow function to shortn the code 
-//rather than making the syntax longer, and called the function in the matched section
-//and added a popup winner string.
+
 function winCheck () {
     if (cards.every(card => card.matched)) {
 setTimeout(() => {
@@ -56,20 +52,17 @@ setTimeout(() => {
 
 
 shuffleArray(cards)
-//cardSet varaible we used here with .foreach to access the contant of the html card img,
-//then inside it i wrote a function and in the parameters put el stand for elements,
-// and the index of the array, witch tells witch index was.  
+
 cardSet.forEach(function (el, index) {
-    //added eventlistener so when ever any card is clicked it will run the code inside it.
+    
 el.addEventListener('click', function () {
-    //here i set up and if statment this line of code so when the player clicks on the same card multible times it will alert invalid guess
-    //and if the cards are matched they stay face up and they dont flipp back.
-    //
+    
     if (index === firstGo || cards[index].matched || !canGuess) {
 alert('invalid guess')
 return
     }
     let clickedCard = cards[index]
+    
     el.setAttribute('src', clickedCard.image)
     
     if (firstGo === null) {
@@ -98,6 +91,28 @@ firstGo = index
 })
 
 
+function resetGame() {
+    // Shuffle the cards again
+    shuffleArray(cards);
+
+    // Reset all matched states
+    cards.forEach(card => card.matched = false);
+
+    // Reset UI for all cards
+    cardSet.forEach((el, index) => {
+        el.setAttribute('src', './images/blue2.svg'); // Assuming this is the default back of the card
+    });
+
+    // Reset gameplay variables
+    firstGo = null;
+    canGuess = true;
+
+    // Hide any win message
+    document.querySelector('.level-winner').style.opacity = '0';
+    document.querySelector('.level-winner').style.pointerEvents = 'none';
+}
+
+document.getElementById('reset-game').addEventListener('click', resetGame);
 
 
 
