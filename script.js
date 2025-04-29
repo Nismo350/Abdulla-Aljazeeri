@@ -11,7 +11,7 @@ function shuffleArray (array) {
     return array
     }
 //and here i called the function on the cards objecte to shuffle its contant 
-    shuffleArray(cards)
+    
 
 
     //we need an Array of crads were we can store the front of the cards so we can use this array of 
@@ -34,29 +34,32 @@ let cards = [
     //the back of the card.
     const cardSet = document.querySelectorAll('.card')
     
-    
     let  firstGo = null
+    
     let canGuess = true
     
 
 
 //here i added a wincheck function basicly i made an if statment and chose cards array and 
-// every card inside that array matches card.mached, and i used the arrow function to short cut the code 
-//rather than making the syntax longer
+// every card inside that array matches, and i used the arrow function to shortn the code 
+//rather than making the syntax longer, and called the function in the matched section
 function winCheck () {
     if (cards.every(card => card.matched)) {
 setTimeout(() => {
-    alert('YOU HAVE WON THE GAME')
+    document.querySelector('.level-winner').style.opacity = '1'
+    document.querySelector('.level-winner').style.pointerEvents = 'auto'
+   
 }, 500)
     }
 }
-//here i added a wincheck function basicly i made an if statment and chose cards array and 
-// every card inside that array matches card.mached, and i used the arrow function to short cut the code 
-//rather than making the syntax longer
 
 
-
+shuffleArray(cards)
+//cardSet varaible we used here with .foreach to access the contant of the html card img,
+//then inside it i wrote a function and in the parameters put el stand for elements,
+// and the index of the array, witch tells witch index was.  
 cardSet.forEach(function (el, index) {
+    
 el.addEventListener('click', function () {
     if (index === firstGo || cards[index].matched || !canGuess) {
 alert('invalid guess')
