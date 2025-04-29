@@ -25,7 +25,8 @@ img {
 .game {
     border: 5px solid red;
     width: 315px;
-    background-color: cadetblue;
+    background-color: black;
+    color: white;
     
 }
 
