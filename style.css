@@ -30,7 +30,7 @@ img {
 }
 
 h1 {
-    text-align: left;
+    text-align: center;
     font-family: cursive;
     margin: 0 auto;
 }
@@ -68,4 +68,5 @@ h1 {
     cursor: pointer;
     font-size: 16px;
 }
+
 

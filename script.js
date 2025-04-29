@@ -10,12 +10,11 @@ function shuffleArray (array) {
     }
     return array
     }
-//and here i called the function on the cards objecte to shuffle its contant 
+
     
 
 
-    //we need an Array of crads were we can store the front of the cards so we can use this array of 
-    //object later on for flipping the card.
+
 let cards = [
     {value: '2', image: './images/diamonds_2.svg', matched: false},
     {value: '3', image: './images/diamonds_3.svg', matched: false},

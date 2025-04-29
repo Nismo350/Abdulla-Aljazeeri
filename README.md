@@ -16,7 +16,7 @@ This is a Memory Card Game where you flip cards and try to match pairs. If you m
 Preview
 Here’s how the game looks:
 
-Game Preview![alt text](image.png)
+## Game Preview![alt text](image.png)
 
 
 
