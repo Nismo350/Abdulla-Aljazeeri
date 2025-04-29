@@ -11,21 +11,20 @@ let cards = [
     {value: '5', image: './images/diamonds_5.svg', matched: false},
     {value: '6', image: './images/diamonds_6.svg', matched: false},
     {value: '7', image: './images/diamonds_7.svg', matched: false},
-  
-    ]
+]
     const cardSet = document.querySelectorAll('.card')
     let  firstGo = null
     let canGuess = true
-
+    function shuffleArray (array) {
     for (let i = array.length -1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1));
     const temp = array[i]
     array[i] = array[j]
     array[j] = temp
-}
-return array
-      
-
+    
+    }
+    return array
+    }
 function winCheck () {
     if (cards.every(card => card.matched)) {
 setTimeout(() => {
@@ -52,8 +51,8 @@ firstGo = index
     if (cards[firstGo].value === cards[index].value) {
         cards[firstGo].matched = true
         cards[index].matched = true
-        
         firstGo = null
+        // winCheck()
         }else {
             canGuess = false
             setTimeout(function () {
