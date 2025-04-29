@@ -1,23 +1,22 @@
 let cards = [
-    {value: '2', image: './images/diamonds_2.svg'},
-    {value: '3', image: './images/diamonds_3.svg'},
-    {value: '4', image: './images/diamonds_4.svg'},
-    {value: '5', image: './images/diamonds_5.svg'},
-    {value: '6', image: './images/diamonds_6.svg'},
-    {value: '7', image: './images/diamonds_7.svg'},
-    {value: '2', image: './images/diamonds_2.svg'},
-    {value: '3', image: './images/diamonds_3.svg'},
-    {value: '4', image: './images/diamonds_4.svg'},
-    {value: '5', image: './images/diamonds_5.svg'},
-    {value: '6', image: './images/diamonds_6.svg'},
-    {value: '7', image: './images/diamonds_7.svg'},
+    {value: '2', image: './images/diamonds_2.svg', matched: false},
+    {value: '3', image: './images/diamonds_3.svg', matched: false},
+    {value: '4', image: './images/diamonds_4.svg', matched: false},
+    {value: '5', image: './images/diamonds_5.svg', matched: false},
+    {value: '6', image: './images/diamonds_6.svg', matched: false},
+    {value: '7', image: './images/diamonds_7.svg', matched: false},
+    {value: '2', image: './images/diamonds_2.svg', matched: false},
+    {value: '3', image: './images/diamonds_3.svg', matched: false},
+    {value: '4', image: './images/diamonds_4.svg', matched: false},
+    {value: '5', image: './images/diamonds_5.svg', matched: false},
+    {value: '6', image: './images/diamonds_6.svg', matched: false},
+    {value: '7', image: './images/diamonds_7.svg', matched: false},
   
     ]
     const cardSet = document.querySelectorAll('.card')
     let  firstGo = null
-// const orgnCard = image('./images/blue3.svg')
- // this is a shuffle function to pick a random card from the cards array.
-const shuffleArray = array => {
+    let canGuess = true
+
     for (let i = array.length -1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1));
     const temp = array[i]
@@ -25,12 +24,24 @@ const shuffleArray = array => {
     array[j] = temp
 }
 return array
-}      
+      
+
+function winCheck () {
+    if (cards.every(card => card.matched)) {
+setTimeout(() => {
+    alert('YOU HAVE WON THE GAME')
+}, 500)
+    }
+}
 
 shuffleArray(cards)
-//this is function for clicking the card.
+
 cardSet.forEach(function (el, index) {
 el.addEventListener('click', function () {
+    if (index === firstGo || cards[index].matched || !canGuess) {
+alert('invalid guess')
+return
+    }
     let clickedCard = cards[index]
     el.setAttribute('src', clickedCard.image)
     
@@ -39,23 +50,23 @@ firstGo = index
     } else {
         
     if (cards[firstGo].value === cards[index].value) {
-        // console.log('its match');
+        cards[firstGo].matched = true
+        cards[index].matched = true
+        
         firstGo = null
         }else {
+            canGuess = false
             setTimeout(function () {
+                
                 cardSet[firstGo].setAttribute('src', './images/blue2.svg')
                 cardSet[index].setAttribute('src', './images/blue2.svg')
                 firstGo = null
-            }, 500)
-
-        // console.log('not amatch');
+            canGuess = true
+            }, 1000)
+            
+        
         } 
-        
-        
-        
-        
-    
-    }
+    } 
 })
 })
 
