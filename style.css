@@ -22,9 +22,17 @@ img {
 
 }
 
+.game {
+    border: 5px solid red;
+    width: 315px;
+    background-color: cadetblue;
+    
+}
+
 h1 {
-    text-align: center;
+    text-align: left;
     font-family: cursive;
+    margin: 0 auto;
 }
 
 .level-winner {
@@ -46,6 +54,7 @@ h1 {
     position: relative;
     font-size: 6rem;
     letter-spacing: 10px;
-  }
+}
+
 
   /* #111 */

@@ -43,12 +43,13 @@ let cards = [
 //here i added a wincheck function basicly i made an if statment and chose cards array and 
 // every card inside that array matches, and i used the arrow function to shortn the code 
 //rather than making the syntax longer, and called the function in the matched section
+//and added a popup winner string.
 function winCheck () {
     if (cards.every(card => card.matched)) {
 setTimeout(() => {
     document.querySelector('.level-winner').style.opacity = '1'
     document.querySelector('.level-winner').style.pointerEvents = 'auto'
-   
+
 }, 500)
     }
 }
@@ -59,8 +60,11 @@ shuffleArray(cards)
 //then inside it i wrote a function and in the parameters put el stand for elements,
 // and the index of the array, witch tells witch index was.  
 cardSet.forEach(function (el, index) {
-    
+    //added eventlistener so when ever any card is clicked it will run the code inside it.
 el.addEventListener('click', function () {
+    //here i set up and if statment this line of code so when the player clicks on the same card multible times it will alert invalid guess
+    //and if the cards are matched they stay face up and they dont flipp back.
+    //
     if (index === firstGo || cards[index].matched || !canGuess) {
 alert('invalid guess')
 return
