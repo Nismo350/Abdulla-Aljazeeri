@@ -111,4 +111,5 @@ function resetGame() {
     document.querySelector('.level-winner').style.pointerEvents = 'none';
 }
 
+document.getElementById('reset-game').addEventListener('click', resetGame);
 
