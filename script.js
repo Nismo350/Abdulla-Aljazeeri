@@ -90,7 +90,6 @@ firstGo = index
 })
 })
 
-
 function resetGame() {
     // Shuffle the cards again
     shuffleArray(cards);
@@ -111,9 +110,5 @@ function resetGame() {
     document.querySelector('.level-winner').style.opacity = '0';
     document.querySelector('.level-winner').style.pointerEvents = 'none';
 }
-
-document.getElementById('reset-game').addEventListener('click', resetGame);
-
-
 
 
